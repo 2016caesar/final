@@ -41,7 +41,7 @@
 	</input></form>
 	</div><div><br />
 	<br />
-			<p class="sub2_txt">서울캠퍼스 서울시 종로구 홍지문 2길 20 (우)03016 / 천안캠퍼스 충남 천안시 동남구 상명대길 31 (우)31066<br /></p>
+			<p class="sub2_txt">서울캠퍼스 서울시 종로구  홍지문 2길 20 (우)03016 / 천안캠퍼스 충남 천안시 동남구 상명대길 31 (우)31066<br /></p>
 			<p class="sub3_txt">Copyright(c) 2013 Sangmyung University All Rights Reserved</p>
 		</div>
 		</div>

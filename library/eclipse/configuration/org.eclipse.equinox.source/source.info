@@ -1,0 +1,7 @@
+#encoding=UTF-8
+#version=1
+org.aspectj.runtime.source,1.8.6.20150608154244,plugins/org.aspectj.runtime.source_1.8.6.20150608154244.jar,-1,false
+org.eclipse.equinox.weaving.aspectj.source,1.0.400.weaving-hook-20140821,plugins/org.eclipse.equinox.weaving.aspectj.source_1.0.400.weaving-hook-20140821.jar,-1,false
+org.eclipse.equinox.weaving.caching.j9.source,1.0.200.weaving-hook-20140821,plugins/org.eclipse.equinox.weaving.caching.j9.source_1.0.200.weaving-hook-20140821.jar,-1,false
+org.eclipse.equinox.weaving.caching.source,1.0.400.weaving-hook-20140821,plugins/org.eclipse.equinox.weaving.caching.source_1.0.400.weaving-hook-20140821.jar,-1,false
+org.eclipse.equinox.weaving.hook.source,1.1.100.weaving-hook-20140821,plugins/org.eclipse.equinox.weaving.hook.source_1.1.100.weaving-hook-20140821.jar,-1,false

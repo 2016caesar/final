@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+	<data-sources>
+	</data-sources>
+	<!-- <form-beans>
+		<form-bean name="MailForm" type="sangsang.mail.MailForm" />
+	</form-beans> -->
+	<global-exceptions>
+	</global-exceptions>
+	<global-forwards>
+		<forward name="index" path="/index.do" />
+		<forward name="error500" path="/error/error_500.jsp" />
+		<forward name="alert" path="/Z00_Include/alert_msg.jsp" />
+	</global-forwards>
+	<action-mappings>
+
+  	<!-- =======================  SHARE area  =========================== -->
+
+    <!-- Z00_Include -->
+    <action path="/index" type="finals.include.action.IndexAction" scope="request">
+      <forward name="index" path="/index.jsp" redirect="true" />
+    </action>
+    <action path="/main" type="finals.comm.MainAction" scope="request">
+      <forward name="main" path="/main/main.jsp" />
+    </action>
+  <action path="/otp_login" type="finals.comm.OtploginAction" scope="request">
+      <forward name="otp_login" path="/main/otp_login.jsp" />
+    </action>   
+    <action path="/login" type="finals.comm.LoginAction" scope="request">
+      <forward name="login" path="/main/login.jsp" />
+    </action>    
+	<action path="/page" type="finals.comm.PageAction" scope="request">
+      <forward name="page" path="/main/page.jsp" />
+    </action> 
+    <action path="/mysql" type="finals.comm.SqlAction" scope="request">
+      <forward name="mysql" path="/main/mysql.jsp" />
+    </action>
+    <action path="/mail" type="finals.comm.MailAction" scope="request">
+      <forward name="mail" path="/main/mail.jsp" />
+    </action>
+<!-- ./main.jsp /main.jsp-->
+
+    <!-- <action path="/xx" type="sangsang.auth.action.AuthenAction" scope="request">
+      <forward name="fail" path="/login.do" redirect="true" />
+      <forward name="success" path="/main.do" redirect="true" />
+      <forward name="membershipfirst" path="/membershipfirst.do" redirect="true" />
+	  <forward name="viewPersInfo" path="/viewReserve/viewPersInfo.do" redirect="true" />
+	  <forward name="viewGrouInfo" path="/viewReserve/viewGrouInfo.do" redirect="true" />
+	  <forward name="dailyProgram" path="/eduReserve/dailyProgram.do" redirect="true" />
+	  <forward name="regularProgram" path="/eduReserve/regularProgram.do" redirect="true" />
+    </action> -->
+
+  </action-mappings>
+  <controller/>
+</struts-config>

@@ -3,47 +3,5 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/final_lib"/>
-	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.8.0_65/jre/lib/mysql-connector-java-5.1.39-bin.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/activation.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-beanutils.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-codec-1.3.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-collections.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-digester.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-fileupload-1.2.1.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-fileupload.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-io-1.3.1.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-lang.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-logging.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-validator.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/cos.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/dsn.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/gimap.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/icu4j-4.0.1.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/imap.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jakarta-oro.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jaxen-full.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jcommon-1.0.16.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jfreechart-1.0.13.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jstl-1.1.2.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/log4j-1.2.16.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/log4sql.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mail.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mailapi.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mobileserver.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mysql-connector-java-5.1.39-bin.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/pop3.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/rdmanager.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/rdmaster.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/rdserver.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/saxpath.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/servlet-api.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/smtp.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/sqljdbc4.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/standard-1.1.2.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/struts.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/verity.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/vsearch.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/xalan.jar"/>
-	<classpathentry kind="lib" path="E:/finalproject/final/WebContent/WEB-INF/lib/json_simple-1.1.jar"/>
 	<classpathentry kind="output" path="WebContent/WEB-INF/classes"/>
 </classpath>

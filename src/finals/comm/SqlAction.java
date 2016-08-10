@@ -11,6 +11,9 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
+import finals.comm.CreateotpAction;
+import finals.comm.OTPDao;
+
 
 
 public class SqlAction extends CommonAction{
@@ -27,7 +30,9 @@ public class SqlAction extends CommonAction{
 
 			
 			MainDao dao = new MainDao();
-		
+		    OTPDao dao2 = new OTPDao();
+		    CreateotpAction ctp = new CreateotpAction();
+		    
 			List<HashMap<String,String>> user =  dao.MainGetDB(param);
 			
 			//--- Map 타입
@@ -37,7 +42,6 @@ public class SqlAction extends CommonAction{
 			
 			//request.setAttribute("test", dao.MainGetDB(param));
 			//param.put("userList",user);
-			
 			
 
 

@@ -60,7 +60,7 @@ public class AES128 {
      * @return String 암호화 된 문자열
      * @throws Exception
      */
-    public static String encrypt(String message) throws Exception {
+    public String encrypt(String message) throws Exception {
 
         // use key coss2
         SecretKeySpec skeySpec = new SecretKeySpec(key.getBytes(), "AES");

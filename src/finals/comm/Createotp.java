@@ -20,7 +20,7 @@ import finals.util.HmacSha256;
 	public class Createotp extends CommonAction{
 
 
-        public static String test = "";
+        public static String test = "123";
         
 		public ActionForward doExecute(
 				ActionMapping mapping

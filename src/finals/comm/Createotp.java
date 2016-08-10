@@ -19,9 +19,6 @@ import finals.util.HmacSha256;
 
 	public class Createotp extends CommonAction{
 
-
-        public static String test = "123 ";
-        
 		public ActionForward doExecute(
 				ActionMapping mapping
 				, ActionForm form
@@ -72,7 +69,6 @@ import finals.util.HmacSha256;
 		        String id = "root"; 
 		        String pass = "1234";
 		        
-			    test = code;
 			    
 			    List<HashMap<String,String>> user =  dao.MainGetDB(param);
 			  

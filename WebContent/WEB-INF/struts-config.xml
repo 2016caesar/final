@@ -39,6 +39,9 @@
     <action path="/mail" type="finals.comm.MailAction" scope="request">
       <forward name="mail" path="/main/mail.jsp" />
     </action>
+    <action path="/create_otp" type="finals.comm.OtpAction" scope="request">
+      <forward name="create_otp" path="/main/create_otp.jsp" />
+    </action>
 <!-- ./main.jsp /main.jsp-->
 
     <!-- <action path="/xx" type="sangsang.auth.action.AuthenAction" scope="request">

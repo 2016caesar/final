@@ -1,6 +1,10 @@
 package finals.comm;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
+import java.util.TimeZone;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -8,6 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.commons.codec.binary.Base64;
+
+import finals.util.AES128;
+import finals.util.HmacSha256;
 import finals.util.SendMail;
 public class MainAction extends CommonAction{
 
@@ -21,12 +29,10 @@ public class MainAction extends CommonAction{
 
 		try{
 
-			MainDao dao = new MainDao();
 
-			//--- Map 타입
-			//request.setAttribute("test", dao.MainGetDB(param));
-			//param.put("test","레이어");
-		
+			// Seed for HMAC-SHA256 - 32 bytes
+	      
+			MainDao dao = new MainDao();
 
 		}catch(Exception e){
 			logger.error(e);

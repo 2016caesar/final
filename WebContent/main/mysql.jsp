@@ -47,14 +47,16 @@ out.println(request.getParameter("user"));*/
 //System.out.println(name);
 
 %>
-asdf
+
 <c:forEach var="result" items="${ userList }" varStatus="status">
-	${ status.index + 1} : <Br/>
+	<%-- ${ status.index + 1} : <Br/> --%>
 	<%-- <c:out value="${ result }"/> --%>
-	id : <c:out value="${ result.id }"/><Br/>
-	name : <c:out value="${ result.name }"/><Br/>
-	email : <c:out value="${ result.email }"/><Br/>
-	pw : <c:out value="${ result.pw }"/><Br/>
+	seq : <c:out value="${ result.u_seq }"/><Br/>
+	id : <c:out value="${ result.u_no }"/><Br/>
+	email : <c:out value="${ result.u_mail }"/><Br/>
+	pw : <c:out value="${ result.u_pass }"/><Br/>
+	time : <c:out value="${ result.u_c_time }"/><Br/>
+
 </c:forEach>
 </body>
 </html>

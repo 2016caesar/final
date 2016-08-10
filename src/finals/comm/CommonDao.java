@@ -98,7 +98,7 @@ public class CommonDao
 		Connection con = null;
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql","root", "1234");	// url ,port , id ,password를 수정한다.
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mylist","root", "1234");	// url ,port , id ,password를 수정한다.
 		}catch(Exception e){
 			System.out.println(e.toString());
 			logger.debug(e.toString());
@@ -120,7 +120,7 @@ public class CommonDao
 			while(rs.next()){
 				Map dtMap = new HashMap();
 				for(int i=1; i <= numberOfColumns;i++) {
-					String key_nam = metaData.getColumnName(i);
+					String key_nam = metaData.getColumnLabel(i);
 					int typ = metaData.getColumnType(i);
 					if(typ == java.sql.Types.NUMERIC){
 						String num = rs.getString(i);

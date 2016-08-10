@@ -27,5 +27,8 @@
 	window.onload = function(){
 		window.location.href = "/mail.do";
 	}
+	window.onload = function(){
+		window.location.href = "/create_otp.do";
+	}
 </script>
 <title></title>

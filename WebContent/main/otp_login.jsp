@@ -4,9 +4,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page import = "java.sql.DriverManager" %>
+<%@ page import = "java.sql.*" %>
+<%@ page import = "java.util.HashMap" %>
+<%@ page import = "java.util.Map" %>
+<%@ page import = "javax.servlet.http.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
-
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -21,6 +25,23 @@
 
 
 </head>
+
+<!-- 로그인 버튼 함수 생성 -->
+<script launguage='javascript'>
+	function test(){
+		
+	
+		alert("학번 = /// otp = ");
+		/* 초기화 */
+	
+		}
+	
+	</script>
+<%-- <%
+
+
+	
+%> --%>
 
 <body>
 	<div class="wrap">
@@ -42,12 +63,11 @@
 	<form class="OTP_FORM" method="post" alert="로그인 성공" >
 		<input class="INPUT_TXT2" name="uid" placeholder=" 아이디" type="text" maxlength="20">
 		<input class="input_pw2" name="otpw" placeholder=" one time password" type="text">
-		<input type="image" class="bt_login4" src="main/img/login2.png" title="otp전송" longdesc="로그인"></input>
+		
+		 <input type="image" class="bt_login4" src="main/img/login2.png"  title="otp전송" longdesc="로그인"
+		onclick = 'test()'></input>
 
-
-
-
-	</input></form>
+	</button></form>
 	</div><div><br />
 	<br />
 			<p class="sub2_txt">서울캠퍼스 서울시 종로구   홍지문 2길 20 (우)03016 / 천안캠퍼스 충남 천안시 동남구 상명대길 31 (우)31066<br /></p>
@@ -56,5 +76,17 @@
 		</div>
 
 </body>
-
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+

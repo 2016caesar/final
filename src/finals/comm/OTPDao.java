@@ -51,4 +51,44 @@ public class OTPDao extends CommonDao{
 
     	return rs;
     }
-}
+	
+	
+	public int otpGetDB(String uid, String inputotp){
+	
+				boolean result = false;
+		    	Connection conn = null;
+		        PreparedStatement pstmt = null;
+		        int rs = 0;
+
+		        StringBuffer query = new StringBuffer();
+
+		        try{
+
+		        	conn = getJndi();
+		            query.setLength(0);
+		            
+		          	query.append(" SELECT  `U_NO`,`OTP_CODE`,`OTP_TIME`\n");
+		          	query.append("	 	FROM `mylist`.`c_otp_authen` \n");
+		          	query.append(" WHERE \n");
+		          	query.append("`U_NO` = "+uid+",`OTP_CODE` = "+inputotp+" ;\n");
+		          		
+		          	query.append("	   \n");
+		          	query.append("	   \n");
+		          			
+
+		          	pstmt = conn.prepareStatement(query.toString());
+		          	System.out.println(query.toString());
+		          	rs = pstmt.executeUpdate();
+	
+		            
+		        }catch(Exception e){
+		        	e.printStackTrace();
+		        	logger.error(e);
+		        }finally{
+		        	setClose(conn,pstmt);
+		        }
+
+		    	return rs;
+		    }
+	
+	}

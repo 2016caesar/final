@@ -28,9 +28,10 @@ public class MailAction extends CommonAction{
 			//param.put("user", dao.MainGetDB(param));
 			
 			SendMail aa = new SendMail();
+			request.setAttribute("userMail", umail);
 			
 			 aa.getAddr("aann217@gmail.com", "dksdyd5237", umail);// 계정 정보 입력
-		;
+			 
 		}catch(Exception e){
 			logger.error(e);
 			

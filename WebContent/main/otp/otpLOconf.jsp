@@ -1,4 +1,4 @@
-<head><%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%-- <%@ include file="session.jsp" %> --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -8,22 +8,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<title>page</title>
-<link rel="shortcut icon" href="" type="image/x-icon" />
-<link rel="stylesheet" type="text/css" href="" />
+<title>mail page</title>
 <c:if test="false">
 </c:if>
 <style>
-body{
-background-image:url('main/img/page.png')
-}
 </style>
 </head>
-	<link href="/css/style.css" rel="stylesheet" type="text/css"/>
-	<body>
-	
-	<form name=haksa type="post" action="/mail.do">
-		<input type="image" class="haksa" src="main/img/haksa.PNG" width="215" height="69" >
-	</form>
-	</body>
-</html>
+<body>
+<c:out value="${ userMail }"/> 로 메일이 보내졌습니다. 10분내로 확인해주시길 바랍니다.
+</body>

@@ -9,16 +9,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <title>mail page</title>
-<!-- <link rel="shortcut icon" href="" type="image/x-icon" /> -->
-
 <c:if test="false">
 </c:if>
 <style>
-
 </style>
 </head>
 <body>
-메일
-<%
-out.println(request.getParameter("user"));%>
+<c:out value="${ userMail }"/> 로 메일이 보내졌습니다. 10분내로 확인해주시길 바랍니다.
 </body>

@@ -16,6 +16,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <title>sqlex</title>
+<link rel="shortcut icon" href="" type="image/x-icon" />
 <link rel="stylesheet" type="text/css" href="" />
 <c:if test="false">
 </c:if>

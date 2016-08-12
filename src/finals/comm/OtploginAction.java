@@ -21,7 +21,6 @@ import org.apache.struts.action.ActionMapping;
 
 
 
-
 import finals.util.AES128;
 import finals.util.HmacSha256;
 
@@ -35,7 +34,17 @@ public class OtploginAction extends CommonAction{
 			, Map param
 		){
 		try{
-			System.out.println("호출 페이지는 /otp_login.do 입니다.");
+			OTPDao dao = new OTPDao();
+			MainDao dao2 = new MainDao();
+			String inputid = 	request.getParameter("uid");
+			String inputotp = 	request.getParameter("otpw");
+			
+			System.out.println("입력받은 학번 :"+inputid+ "입력받은 오티피 = "+inputotp);
+			
+			int insertCert = dao.otpGetDB(inputid,inputotp);
+			System.out.println("inserted YN : " + insertCert);
+			
+		    List<HashMap<String,String>> user =  dao2.MainGetDB(param);
 			
 		}catch(Exception e){
 			logger.error(e);

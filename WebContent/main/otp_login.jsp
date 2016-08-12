@@ -11,29 +11,38 @@
 <%@ page import = "javax.servlet.http.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <title>OTP login</title>
+<link rel="shortcut icon" href="" type="image/x-icon" />
+
 <link rel="stylesheet" type="text/css" href="" />
 <c:if test="false">
 </c:if>
 <link href="/css/style.css" rel="stylesheet" type="text/css"/>
 
+
+</head>
+
 <!-- 로그인 버튼 함수 생성 -->
 <script launguage='javascript'>
 	function test(){
 		
-		var stuNum = document.otpForm.stuNum.value;
-		var otpNum = document.otpForm.otpNum.value;
-		alert("학번 = "+stuNum+ " /// otp = "+otpNum+"");
-		document.otpForm.action ="/confirm_otp.do";
-		document.otpForm.submit();	
-
-	}
 	
-</script>
-</head>
+		alert("학번 = /// otp = ");
+		/* 초기화 */
+	
+		}
+	
+	</script>
+<%-- <%
+
+
+	
+%> --%>
+
 <body>
 	<div class="wrap">
 		<img src="main/img/korean.png"  width="70" height="21" border="0" id="ko"/></a>
@@ -48,21 +57,24 @@
 			
 		<img class="sso_title" src="main/img/title.png" alt="상명대학교 통합로그인" /><br />
 		<img class="sso_slogan" src="main/img/slogan.png" alt="Global Sangmyung Dynamic Sangmyung" />
-		<div class="box_area">
-			<p class="sub_tit5">OTP로그인 </p><br/>
-			<img class="line3" src="main/img/line.png" alt="line" />	 
-			<form name="otpForm" class="OTP_FORM" method="post">
-				<input class="INPUT_TXT2" name="stuNum" placeholder=" 아이디" type="text" maxlength="20"/>
-				<input class="input_pw2" name="otpNum" placeholder=" one time password" type="text"/>
-				<input type="image" class="bt_login4" src="main/img/login2.png"  title="otp전송" longdesc="로그인" onclick = 'test()'/>
-			</form>
-		</div>
-		<div>
-			<br /><br />
+	<div class="box_area">
+	<p class="sub_tit5">OTP로그인 </p><br>
+		<img class="line3" src="main/img/line.png" alt="line" /> 
+	<form class="OTP_FORM" method="post" alert="로그인 성공" >
+		<input class="INPUT_TXT2" name="uid" placeholder=" 아이디" type="text" maxlength="20">
+		<input class="input_pw2" name="otpw" placeholder=" one time password" type="text">
+		
+		 <input type="image" class="bt_login4" src="main/img/login2.png"  title="otp전송" longdesc="로그인"
+		onclick = 'test()'></input>
+
+	</button></form>
+	</div><div><br />
+	<br />
 			<p class="sub2_txt">서울캠퍼스 서울시 종로구   홍지문 2길 20 (우)03016 / 천안캠퍼스 충남 천안시 동남구 상명대길 31 (우)31066<br /></p>
 			<p class="sub3_txt">Copyright(c) 2013 Sangmyung University All Rights Reserved</p>
 		</div>
-	</div><!-- end Wrap -->
+		</div>
+
 </body>
 </html>
 

@@ -9,6 +9,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <title>login page</title>
+<link rel="shortcut icon" href="" type="image/x-icon" />
+
 <c:if test="false">
 </c:if>
 <style>

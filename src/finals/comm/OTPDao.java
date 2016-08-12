@@ -53,34 +53,32 @@ public class OTPDao extends CommonDao{
     }
 	
 	
-	public List otpGetDB(String uid, String inputotp){
+	public int otpGetDB(String uid, String inputotp){
 	
-				List<HashMap<String,String>> result = null;
+				boolean result = false;
 		    	Connection conn = null;
 		        PreparedStatement pstmt = null;
-		        ResultSet rs = null;
+		        int rs = 0;
 
 		        StringBuffer query = new StringBuffer();
 
 		        try{
-		        	System.out.println("uid : "+uid);
-		        	System.out.println("inputotp : "+inputotp);
+
 		        	conn = getJndi();
 		            query.setLength(0);
 		            
 		          	query.append(" SELECT  `U_NO`,`OTP_CODE`,`OTP_TIME`\n");
 		          	query.append("	 	FROM `mylist`.`c_otp_authen` \n");
 		          	query.append(" WHERE \n");
-		          	query.append("`U_NO` = '"+uid+"'\n");
-		          	query.append(" AND`OTP_CODE` = '"+inputotp+"' \n");
-		          	query.append("	  ; \n");
+		          	query.append("`U_NO` = "+uid+",`OTP_CODE` = "+inputotp+" ;\n");
+		          		
+		          	query.append("	   \n");
+		          	query.append("	   \n");
 		          			
-		          	System.out.println(query.toString());
+
 		          	pstmt = conn.prepareStatement(query.toString());
-		          	
-		          	rs = pstmt.executeQuery();
-		            result = setDatas(rs);
-		            System.out.println(result);
+		          	System.out.println(query.toString());
+		          	rs = pstmt.executeUpdate();
 	
 		            
 		        }catch(Exception e){
@@ -90,7 +88,7 @@ public class OTPDao extends CommonDao{
 		        	setClose(conn,pstmt);
 		        }
 
-		    	return result;
+		    	return rs;
 		    }
 	
 	}

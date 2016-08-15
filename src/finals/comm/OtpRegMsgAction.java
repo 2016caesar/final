@@ -3,6 +3,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,71 +31,62 @@ import finals.util.OTPUtil;
 				, Map param
 			){
 
-	
 			try{
-				
-				System.out.println("호출 페이지는 /otpRegMsg.do 입니다.");
-				
-		
-				MainDao dao2 = new MainDao();
-				String inputid = 	request.getParameter("uid");
-				String inputcode = 	request.getParameter("mailcode");
-				
+
+				System.out.println("여기는 /otpRegMsg.do 입니다.");
+				//안드로이드에서 파라미터 넘어온 학번 및 메일인증코드를 받는다.
+				//DB값 비교.
+		      
+				String stuNum = 	request.getParameter("stuNum");
+				String mailCode = 	request.getParameter("mailCode");
+				//stuNum = "201011063";
+				//mailCode = "xxx";
+				//DB조회  - 메일 코드 확인
+				OTPRegDao regDao = new OTPRegDao();
+				List mailCodeList = (List) regDao.mailCodeCompare(stuNum, mailCode);
+				//DB조회 - 메일 코드 확인 갯수
+				Map countInfo = regDao.mailCodeCompareCount(stuNum, mailCode);
+				int totalNum = Integer.parseInt(countInfo.get("total").toString());			
+				System.out.println("get Row Count : " + totalNum);
 				
 				JSONObject jsonMain = new JSONObject();
 				JSONArray jArray = new JSONArray();
 				JSONObject jObject = new JSONObject();
-				
-				
-				
-				System.out.println("입력받은 학번 :"+inputid+ "입력받은 코드 = "+inputcode);
-				
-				request.setCharacterEncoding("UTF-8");
-				
-				String uid = request.getParameter("uid");
-				String mailcode = request.getParameter("mailcode");
-				
-				System.out.println("학번 : "+uid);
-				System.out.println("코드 : "+mailcode);
-			
-				Class.forName("com.mysql.jdbc.Driver");
-	
-				Connection conn = DriverManager.getConnection("jdbc:mysql://http:192.168.0.6:3306/mylist", "root", "1234");
-				Statement stmt = conn.createStatement();
-					
-					String query = "select `U_NO`,`MA_CODE` from `mylist`.`c_mail_authen` where  `U_NO` ="+uid+"`MA_CODE` = "+mailcode;
-					ResultSet rs = stmt.executeQuery(query);
-					
-					int i=0; while(rs.next()){
+				if(totalNum == 1){
+					for(int i = 0 ; i < totalNum; i++){
+						Map element = (HashMap) mailCodeList.get(i);
+						String eStuNum = (String) element.get("stuNum");
+						String eMailCode = (String) element.get("mailCode");
+						Date eMailTime = (Date) element.get("mailTime");
+						DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+						String emailTimeTrans = (String) df.format(eMailTime);
+						System.out.println("======================================");
+						System.out.println("eStuNum : "+ eStuNum);
+						System.out.println("eMailCode : "+ eMailCode);
+						System.out.println("eMailTime : "+ eMailTime);
+						System.out.println("emailTimeTrans : "+ emailTimeTrans);
+						System.out.println("======================================");
 						
-						String _uid = rs.getString("uid");
-						String _mailcode=  rs.getString("mailcode");
-						
-						if(uid.equals(_uid)&&mailcode.equals(_mailcode)){
-							i = 1;
-							jObject.put("msg1","succed");
-							jObject.put("msg2", "two");
-							jObject.put("msg3", "three");					
-						}
+						jObject.put("verified","succeed");
+						jObject.put("count", totalNum+"");
+						jObject.put("stuNum", stuNum+"");										
 					}
-					if(i==0){
-						jObject.put("msg1", "failed");
-						jObject.put("msg2", "two");
-						jObject.put("msg3", "three");
-					}
-					stmt.close();
-					conn.close();
-					jArray.add(0,jObject);
-					jsonMain.put("List",jArray);
-					System.out.println(jsonMain.toJSONString());
-		
-			
+					System.out.println("일치");// size = 1 이면 인증완료
+				}else{
+					jObject.put("verified","fail");
+					jObject.put("count", totalNum+"");
+					jObject.put("stuNum", stuNum+"");
+					System.out.println("노일치");
+				}
+				jArray.add(0,jObject);
+				jsonMain.put("data",jArray);
+				request.setAttribute("jsonData", jsonMain.toJSONString());
+				System.out.println("JSON String" +jsonMain.toJSONString());
+				
+
 			}catch(Exception e){
 				logger.error(e);
-			}
-
-				return mapping.findForward("otpReg/otpRegMsg");
-			}
-
-	}
-
+			}	
+			return mapping.findForward("test");
+		}
+}

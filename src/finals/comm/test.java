@@ -6,7 +6,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.TimeZone;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,11 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import org.apache.commons.codec.binary.Base64;
-
-import finals.util.AES128;
-import finals.util.HmacSha256;
-import finals.util.SendMail;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 public class test extends CommonAction{
 
 	public ActionForward doExecute(
@@ -37,11 +33,8 @@ public class test extends CommonAction{
 	      
 			String stuNum = 	request.getParameter("stuNum");
 			String mailCode = 	request.getParameter("mailCode");
-			stuNum = "201011063";
-			mailCode = "xxx";
-			//로그
-			System.out.println("학번  = "+stuNum+ ", 메일 코드 = "+mailCode);
-			
+			//stuNum = "201011063";
+			//mailCode = "xxx";
 			//DB조회  - 메일 코드 확인
 			OTPRegDao regDao = new OTPRegDao();
 			List mailCodeList = (List) regDao.mailCodeCompare(stuNum, mailCode);
@@ -50,6 +43,9 @@ public class test extends CommonAction{
 			int totalNum = Integer.parseInt(countInfo.get("total").toString());			
 			System.out.println("get Row Count : " + totalNum);
 			
+			JSONObject jsonMain = new JSONObject();
+			JSONArray jArray = new JSONArray();
+			JSONObject jObject = new JSONObject();
 			if(totalNum == 1){
 				for(int i = 0 ; i < totalNum; i++){
 					Map element = (HashMap) mailCodeList.get(i);
@@ -64,18 +60,28 @@ public class test extends CommonAction{
 					System.out.println("eMailTime : "+ eMailTime);
 					System.out.println("emailTimeTrans : "+ emailTimeTrans);
 					System.out.println("======================================");
+					
+					jObject.put("verified","succeed");
+					jObject.put("count", totalNum+"");
+					jObject.put("stuNum", stuNum+"");										
 				}
-				System.out.println("로그인 되었습니다.");// size = 1 이면 인증완료
+				System.out.println("일치");// size = 1 이면 인증완료
 			}else{
-				System.out.println("일치하는 정보가 없습니다. 로그인 정보를 확인해주십시오.");
+				jObject.put("verified","fail");
+				jObject.put("count", totalNum+"");
+				jObject.put("stuNum", stuNum+"");
+				System.out.println("노일치");
 			}
+			jArray.add(0,jObject);
+			jsonMain.put("data",jArray);
+			request.setAttribute("jsonData", jsonMain.toJSONString());
+			System.out.println("JSON String" +jsonMain.toJSONString());
 			
 
 		}catch(Exception e){
 			logger.error(e);
-		}
-
-			return mapping.findForward("test");
-		}
+		}	
+		return mapping.findForward("test");
+	}
 
 }

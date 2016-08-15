@@ -29,6 +29,8 @@ public class SendMail {
     	
         Random generator = new Random();
         int authnum = generator.nextInt(900000)+100000;
+        
+        
 
     	
      // =================================================

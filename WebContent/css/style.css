@@ -172,12 +172,7 @@ div, p, ul, li, img, a, td, tr, h1, h2, h3, h4, h5, h6, form, input, span, ifram
 }
 .login_input_txt{
 	font-size:15px;
-	bottom:35px; width:250px; height:25px;
-	position: relative;  
-}
-.stuNum_input_txt{
-		font-size:15px;
-	margin-top:40px; width:250px; height:25px; position: relative; bottom:40px; 
+	margin-top:1px; width:250px; height:25px;
 }
 .bt_login2{
 	position:absolute;
@@ -186,14 +181,13 @@ div, p, ul, li, img, a, td, tr, h1, h2, h3, h4, h5, h6, form, input, span, ifram
 }
 .bt_login3{
 	position:absolute;
-	top:140px;
-	left:334px;
-	
+	top:110px;
+	left:354px;
 }
 .bt_login5{
 	position:absolute;
-	bottom:70px;
-	left:335px;
+	bottom:110px;
+	left:354px;
 }
 .haksa{
 	position:absolute;
@@ -220,34 +214,3 @@ div, p, ul, li, img, a, td, tr, h1, h2, h3, h4, h5, h6, form, input, span, ifram
 	position:absolute;
 	bottom:10px;
 }
-.bt_assign{
-	position:absolute;
-	bottom:82px;
-	left:95px;
-}
-.bt_ecampus{
-	position:absolute;
-	bottom:82px;
-	left:205px;
-}
-.bt_home{
-	position:absolute;
-	bottom:82px;
-	left:315px;
-}
-.bt_internethaksa{
-	position:absolute;
-	bottom:36px;
-	left:95px;
-}
-.bt_libincheonan{
-	position:absolute;
-	bottom:36px;
-	left:205px;
-}
-.bt_libinseoul{
-	position:absolute;
-	bottom:36px;
-	left:315px;
-}
-

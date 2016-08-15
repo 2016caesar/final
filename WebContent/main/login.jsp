@@ -42,19 +42,31 @@ function fsubmit() {
 			<div class="box_area">
 			<br /><p class="sub_tit4">기기본인인증</p>
 			<br /><img class="line1" src="main/img/line.png" alt="line" /> 
-			 <p class="sub1_txt1">메일주소를 입력하세요.</p>
+			
+			 <p class="sub1_txt1">학번과 메일주소를 입력하세요.</p>
+		<form name="devicecheck" method="post" action="return false;">
+			<input class="stuNum_input_txt" type="text" name="stuNum" placeholder="stuNum" ></input> 
 		<form name="devicecheck" method="post" action="return false;">
 			<input class="login_input_txt" type="text" name="useremail" placeholder="e-mail" ></input> 
 			<img class="bt_login3" src="main/img/enter.png" style="cursor:pointer;" width="90" height="69" onclick="javascript:fsubmit();" >
+		
 		</form>
-			<br /><br /><img class="line4" src="main/img/line.png" alt="line" /> 
+		<br /><br /><img class="line4" src="main/img/line.png" alt="line" /> 
 		<form name="Page_FORM" method="post" action="/page.do" >
 			<p class="sub3_tit3">통합 로그인화면</p><br />
-			<input type="image" class="bt_login5" src="main/img/click.png" width="90" height="69" >
+			
+			<input type="image" class="bt_assign" src="main/img/assign.png" width="105" height="40" >
+			<input type="image" class="bt_ecampus" src="main/img/ecampus.png" width="105" height="40" >
+			<input type="image" class="bt_home" src="main/img/home.png" width="105" height="40" >
+			<input type="image" class="bt_internethaksa" src="main/img/internethaksa.png" width="105" height="40" >
+			<input type="image" class="bt_libincheonan" src="main/img/libincheonan.png" width="105" height="40" >
+			<input type="image" class="bt_libinseoul" src="main/img/libinseoul.png" width="105" height="40" >
+		
+			
 			</input>		
 		</form>
-		<!--onSubmit="f_form1(this);return false;"  -->
-		<br /><br /><br /><br /><br /><br /><img class="line5" src="main/img/line.png" alt="line" /> 
+				<!-- onSubmit="f_form1(this);return false;"  -->
+		<br /><br /><br /><br /><br /><br /><img class="line5" src="main/img/line.png" alt="line" />
 		<p class="find_txt">
 				<br>&nbsp;&nbsp;&nbsp;<br><br><br></p>
 				<br>

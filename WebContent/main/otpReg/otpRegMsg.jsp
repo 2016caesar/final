@@ -17,6 +17,6 @@
 </head>
 <body>
 
-	${ jsonData }
+	<c:out value="${ jsonData }"/>
 
 </body>

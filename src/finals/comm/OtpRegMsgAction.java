@@ -50,7 +50,7 @@ import finals.util.OTPUtil;
 				System.out.println("get Row Count : " + totalNum);
 				
 				JSONObject jsonMain = new JSONObject();
-				JSONArray jArray = new JSONArray();
+				//JSONArray jArray = new JSONArray();
 				JSONObject jObject = new JSONObject();
 				if(totalNum == 1){
 					for(int i = 0 ; i < totalNum; i++){
@@ -78,8 +78,8 @@ import finals.util.OTPUtil;
 					jObject.put("stuNum", stuNum+"");
 					System.out.println("노일치");
 				}
-				jArray.add(0,jObject);
-				jsonMain.put("data",jArray);
+				//jArray.add(0,jObject);
+				jsonMain.put("data",jObject);
 				request.setAttribute("jsonData", jsonMain.toJSONString());
 				System.out.println("JSON String" +jsonMain.toJSONString());
 				
@@ -87,6 +87,6 @@ import finals.util.OTPUtil;
 			}catch(Exception e){
 				logger.error(e);
 			}	
-			return mapping.findForward("test");
+			return mapping.findForward("otpRegMsg");
 		}
 }

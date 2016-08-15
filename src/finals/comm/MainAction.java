@@ -16,7 +16,7 @@ public class MainAction extends CommonAction{
 			, HttpServletRequest request
 			, HttpServletResponse response
 			, Map param
-		){//수정 by shin
+		){//수정 by jung
 
 		try{
 

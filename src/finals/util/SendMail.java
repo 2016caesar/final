@@ -68,6 +68,9 @@ public class SendMail {
         Authenticator auth = new Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(fromEmail, password);
+                
+                
+                
             }
         };
          

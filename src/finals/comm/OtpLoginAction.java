@@ -25,7 +25,7 @@ import org.apache.struts.action.ActionMapping;
 import finals.util.AES128;
 import finals.util.HmacSha256;
 
-public class OtploginAction extends CommonAction{
+public class OtpLoginAction extends CommonAction{
 
 	public ActionForward doExecute(
 			ActionMapping mapping

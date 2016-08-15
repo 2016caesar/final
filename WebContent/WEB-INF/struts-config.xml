@@ -24,7 +24,7 @@
     <action path="/main" type="finals.comm.MainAction" scope="request">
       <forward name="main" path="/main/main.jsp" />
     </action>
-  <action path="/otp_login" type="finals.comm.OtploginAction" scope="request">
+    <action path="/otp_login" type="finals.comm.OtpLoginAction" scope="request">
       <forward name="otp_login" path="/main/otp_login.jsp" />
     </action>   
     <action path="/login" type="finals.comm.LoginAction" scope="request">

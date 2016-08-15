@@ -16,4 +16,7 @@
 </head>
 <body>
 <c:out value="${ userMail }"/> 로 메일이 보내졌습니다. 10분내로 확인해주시길 바랍니다.
+	
+
+
 </body>

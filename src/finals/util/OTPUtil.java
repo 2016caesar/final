@@ -30,7 +30,7 @@ public class OTPUtil {
         
         Date today = new Date();
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-        df.setTimeZone(TimeZone.getTimeZone("UTC"));
+        //df.setTimeZone(TimeZone.getTimeZone("UTC"));
         
         testTime = today.getTime()/1000;
         

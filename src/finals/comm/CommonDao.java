@@ -112,8 +112,8 @@ public class CommonDao
 	 * @param ResultSet 객체
 	 * @return List
 	 */
-	public List<HashMap<String,String>> setDatas(ResultSet rs){
-		List<HashMap<String,String>> lis = new ArrayList();;
+	public List setDatas(ResultSet rs){
+		List lis = new ArrayList();
 		try{
 			ResultSetMetaData metaData = rs.getMetaData();
 			int numberOfColumns = metaData.getColumnCount();
@@ -133,7 +133,7 @@ public class CommonDao
 						dtMap.put(key_nam,str);
 					}
 				}
-				lis.add((HashMap<String, String>) dtMap);
+				lis.add((Map) dtMap);
 			}
 		}catch(Exception e){
 			logger.error(e);

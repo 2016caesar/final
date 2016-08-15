@@ -36,11 +36,6 @@ public class OTPDao extends CommonDao{
           	pstmt = conn.prepareStatement(query.toString());
           	System.out.println(query.toString());
           	rs = pstmt.executeUpdate();
-           
-            /*ResultSetMetaData metaData = rs.getMetaData();
-            result = rs.rowInserted();
-            System.out.println(result);*/
-            
             
         }catch(Exception e){
         	e.printStackTrace();

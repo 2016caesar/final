@@ -10,6 +10,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
+import finals.util.OTPUtil;
 import finals.util.SendMail;
 public class MailAction extends CommonAction{
 
@@ -24,8 +25,6 @@ public class MailAction extends CommonAction{
 		
 		try{
 			String umail = request.getParameter("useremail");
-			
-			//param.put("user", dao.MainGetDB(param));
 			
 			SendMail aa = new SendMail();
 			request.setAttribute("userMail", umail);

@@ -39,11 +39,12 @@ import finals.util.OTPUtil;
 		      
 				String stuNum = 	request.getParameter("stuNum");
 				String mailCode = 	request.getParameter("mailCode");
-				//stuNum = "201011063";
-				//mailCode = "xxx";
+				stuNum = "201011063";
+				mailCode = "xxx";
 				//DB조회  - 메일 코드 확인
 				OTPRegDao regDao = new OTPRegDao();
-				List mailCodeList = (List) regDao.mailCodeCompare(stuNum, mailCode);
+				List<Map<String, Object>> mailCodeList = (List<Map<String, Object>>) regDao.mailCodeCompare(stuNum, mailCode);
+				System.out.println(mailCodeList);
 				//DB조회 - 메일 코드 확인 갯수
 				Map countInfo = regDao.mailCodeCompareCount(stuNum, mailCode);
 				int totalNum = Integer.parseInt(countInfo.get("total").toString());			
@@ -54,27 +55,57 @@ import finals.util.OTPUtil;
 				JSONObject jObject = new JSONObject();
 				if(totalNum == 1){
 					for(int i = 0 ; i < totalNum; i++){
-						Map element = (HashMap) mailCodeList.get(i);
+						Map element = new HashMap();
+						element = mailCodeList.get(i);
+						System.out.println("element : "+element);
 						String eStuNum = (String) element.get("stuNum");
-						String eMailCode = (String) element.get("mailCode");
-						Date eMailTime = (Date) element.get("mailTime");
-						DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-						String emailTimeTrans = (String) df.format(eMailTime);
+						String eMailCode =  (String) element.get("mailCode");
+						String eMailTime = (String) element.get("mailTime");
+						//SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+						//String emailTimeTrans = (String) df.format(eMailTime);
 						System.out.println("======================================");
 						System.out.println("eStuNum : "+ eStuNum);
 						System.out.println("eMailCode : "+ eMailCode);
 						System.out.println("eMailTime : "+ eMailTime);
-						System.out.println("emailTimeTrans : "+ emailTimeTrans);
+						//System.out.println("emailTimeTrans : "+ emailTimeTrans);
 						System.out.println("======================================");
-						
-						jObject.put("verified","succeed");
-						jObject.put("count", totalNum+"");
-						jObject.put("stuNum", stuNum+"");	
-						jObject.put("comment", "메일 인증이 완료되었습니다."+"");
+					
+					}	
+					jObject.put("verified","succeed");
+					System.out.println("유저정보 출력 End");// size = 1 이면 인증완료
+					//AES 키 정보 테이블  insert
+					OTPUtil otpUtil = new OTPUtil();
+					String aesEnc = otpUtil.AESEncrypt(stuNum);
+					int AESInsertResult = regDao.AESKeyInsert(stuNum,aesEnc);
+					String AESInserted = "fail";
+					//AES DB insert
+					if(AESInsertResult == 1){
+						AESInserted = "succeed";
+					}else{
+						AESInserted = "fail";
 					}
-					System.out.println("일치");// size = 1 이면 인증완료
+					System.out.println("AESInsertResult : "+ AESInsertResult);// size = 1 이면 인증완료
+					jObject.put("AESInserted",AESInserted);
+					//otp 정보 테이블  insert
+					int OTPInsertedResult = regDao.OTPInfoInsert(stuNum);
+					String OTPInserted = "fail";
+					//otp DB insert
+					if(OTPInsertedResult == 1){
+						OTPInserted = "succeed";
+					}else{
+						OTPInserted = "fail";
+					}
+					System.out.println("OTPInsertedResult : "+ OTPInsertedResult);// size = 1 이면 인증완료
+					jObject.put("OTPInserted",OTPInserted);
+					
+					jObject.put("count", totalNum+"");
+					jObject.put("stuNum", stuNum+"");	
+					jObject.put("comment", "메일 인증이 완료되었습니다."+"");
+					
 				}else{
 					jObject.put("verified","fail");
+					jObject.put("AESInserted","fail");
+					jObject.put("OTPInserted","fail");
 					jObject.put("count", totalNum+"");
 					jObject.put("stuNum", stuNum+"");
 					jObject.put("comment", "메일 인증이 일치 하지 않습니다."+"");

@@ -25,23 +25,27 @@ import finals.util.OTPUtil;
 	
 			try{
 				
-				OTPUtil otpUtil = new OTPUtil();	
-				String code = (String) otpUtil.serverOTPGet("201011032");
+				String stuNum = (String) request.getAttribute("stuNum");
+				OTPUtil otpUtil = new OTPUtil();
+				//AES 를 DB 호출 - 호출할때 최신정보를 가져오도록한다. 그리고 1일 이상 된것은 지우도록한다.
+				String aesEnc = "";
+				
+				String code = (String) otpUtil.serverOTPGet(aesEnc);
 				
 				OTPDao otpDao = new OTPDao();
-				int insertCert = otpDao.otpSetDB("201011032",code);
+				int insertCert = otpDao.otpSetDB(stuNum,code);
 				System.out.println("============================== ");
 				System.out.println("inserted YN : " + insertCert);
 				System.out.println("============================== ");
 				
-				System.out.println("Created OTP : " + code);
+				System.out.println("New Created OTP : " + code);
 			    request.setAttribute("CreatedOTP", code);
 			    
 			    MainDao dao = new MainDao();
 			    
-			    List<HashMap<String,String>> user =  dao.MainGetDB(param);
+			    List<Map<String, String>> user =  dao.MainGetDB(param);
 			  
-				List<HashMap<String,String>> test =  dao.MainGetDB2(param);
+				List<Map<String,String>> test =  dao.MainGetDB2(param);
 				
 				
 				request.setAttribute("userList", user);

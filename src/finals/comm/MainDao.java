@@ -9,9 +9,9 @@ import java.util.Map;
 
 public class MainDao extends CommonDao{
 
-	public List MainGetDB(Map param){
+	public List<Map<String, String>> MainGetDB(Map param){
 
-			List<HashMap<String,String>> result = null;
+		    List<Map<String, String>> result = null;
 	    	Connection conn = null;
 	        PreparedStatement pstmt = null;
 	        ResultSet rs = null;
@@ -45,9 +45,9 @@ public class MainDao extends CommonDao{
 	    	return result;
 	    }
 
-	public List MainGetDB2(Map param){
+	public List<Map<String, String>> MainGetDB2(Map param){
 
-		List<HashMap<String,String>> result = null;
+		List<Map<String, String>> result = null;
     	Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;

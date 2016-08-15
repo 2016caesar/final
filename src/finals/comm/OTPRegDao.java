@@ -8,11 +8,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class OTPRegDao extends CommonDao{
+public class OTPRegDao extends CommonDao{	
 	
-	/*public int otpSetDB(String stuNum,String otpNum){
+	public int AESKeyInsert(String stuNum ,String AESkey){
 
-		boolean result = false;
     	Connection conn = null;
         PreparedStatement pstmt = null;
         int rs = 0;
@@ -24,23 +23,32 @@ public class OTPRegDao extends CommonDao{
         	conn = getJndi();
             query.setLength(0);
             
-          	query.append(" UPDATE `mylist`.`c_otp_authen` \n");
-          	query.append("	 SET  \n");
-          	query.append("`OTP_CODE` = '"+otpNum+"' , \n");
-          	query.append("`OTP_TIME` = NOW()\n");
-          	query.append("	 WHERE  \n");
-          	query.append("	 `U_NO` = '"+stuNum+"';  \n");
-          	query.append("	   \n");
-          			
+            query.append(" delete from `c_aes_info`  \n");
+            query.append("	 where  `U_NO` = '"+stuNum+"'; \n");         
+        	
+            pstmt = conn.prepareStatement(query.toString());
+          	System.out.println(query.toString());
+          	rs = pstmt.executeUpdate();
+            
+          	query.setLength(0);
+          	
+          	query.append(" insert into `c_aes_info` ( \n");
+          	
+          	query.append("	 `U_NO`,   \n");
+          	query.append("	 `AES_KEY`,  \n");
+          	query.append("	 `AES_C_TIME`  \n");
+          	
+          	query.append("	 )values(  \n");
+          	
+          	query.append("	 '"+stuNum+"',  \n");
+          	query.append("	 '"+AESkey+"',  \n");
+          	query.append("	 NOW()  \n");
+          	
+          	query.append("	 );  \n");			
 
           	pstmt = conn.prepareStatement(query.toString());
           	System.out.println(query.toString());
           	rs = pstmt.executeUpdate();
-           
-            ResultSetMetaData metaData = rs.getMetaData();
-            result = rs.rowInserted();
-            System.out.println(result);
-            
             
         }catch(Exception e){
         	e.printStackTrace();
@@ -50,12 +58,61 @@ public class OTPRegDao extends CommonDao{
         }
 
     	return rs;
-    }*/
+    }
 	
+	public int OTPInfoInsert(String stuNum){
+
+    	Connection conn = null;
+        PreparedStatement pstmt = null;
+        int rs = 0;
+
+        StringBuffer query = new StringBuffer();
+
+        try{
+
+        	conn = getJndi();
+            query.setLength(0);
+            
+            query.append(" delete from `c_otp_authen`  \n");
+            query.append("	 where  `U_NO` = '"+stuNum+"'; \n");
+        	
+            pstmt = conn.prepareStatement(query.toString());
+          	System.out.println(query.toString());
+          	rs = pstmt.executeUpdate();
+            
+          	query.setLength(0);
+          	 
+          	query.append(" insert into `c_otp_authen` ( \n");
+          	
+          	query.append("	 `U_NO`,   \n");
+          	query.append("	 `OTP_CODE`,  \n");
+          	query.append("	 `OTP_TIME`  \n");
+          	
+          	query.append("	 )values(  \n");
+          	
+          	query.append("	 '"+stuNum+"',  \n");
+          	query.append("	 '최초등록',  \n");
+          	query.append("	 NOW()  \n");
+          	
+          	query.append("	 );  \n");			
+
+          	pstmt = conn.prepareStatement(query.toString());
+          	System.out.println(query.toString());
+          	rs = pstmt.executeUpdate();
+            
+        }catch(Exception e){
+        	e.printStackTrace();
+        	logger.error(e);
+        }finally{
+        	setClose(conn,pstmt);
+        }
+
+    	return rs;
+    }
 	
-	public List mailCodeCompare(String stuNum, String mailCode){
+	public List<Map<String, Object>> mailCodeCompare(String stuNum, String mailCode){
 	
-				List result = null;
+				List<Map<String, Object>> result = null;
 		    	Connection conn = null;
 		        PreparedStatement pstmt = null;
 		        ResultSet rs = null;
@@ -70,10 +127,10 @@ public class OTPRegDao extends CommonDao{
 		            
 		          	query.append(" select 	  \n");
 		          	
-		          	query.append("	 	MA_SEQ AS mailSeq,  \n");
-		          	query.append("	 	U_NO AS stuNum,  \n");
-		          	query.append("      MA_CODE AS mailCode,  \n");
-		          	query.append("      MA_TIME  AS mailTime \n");
+		          	query.append("	 	`MA_SEQ` AS mailSeq,  \n");
+		          	query.append("	 	`U_NO` AS stuNum,  \n");
+		          	query.append("      `MA_CODE` AS mailCode,  \n");
+		          	query.append("      `MA_TIME` AS mailTime \n");
 		          	
 		          	query.append(" from mylist.c_mail_authen	 \n");
 		          	query.append(" where `U_NO` = '"+stuNum+"'\n");

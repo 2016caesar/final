@@ -33,7 +33,7 @@ public class SqlAction extends CommonAction{
 		    OTPDao dao2 = new OTPDao();
 		    CreateotpAction ctp = new CreateotpAction();
 		    
-			List<HashMap<String,String>> user =  dao.MainGetDB(param);
+		    List<Map<String, String>> user =  dao.MainGetDB(param);
 			
 			//--- Map 타입
 			

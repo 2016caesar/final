@@ -115,10 +115,11 @@ public class CommonDao
 	public List setDatas(ResultSet rs){
 		List lis = new ArrayList();
 		try{
+			
 			ResultSetMetaData metaData = rs.getMetaData();
 			int numberOfColumns = metaData.getColumnCount();
 			while(rs.next()){
-				Map dtMap = new HashMap();
+				Map<String, Object> dtMap = new HashMap<String, Object>();
 				for(int i=1; i <= numberOfColumns;i++) {
 					String key_nam = metaData.getColumnLabel(i);
 					int typ = metaData.getColumnType(i);
@@ -133,7 +134,7 @@ public class CommonDao
 						dtMap.put(key_nam,str);
 					}
 				}
-				lis.add((Map) dtMap);
+				lis.add((Map<String, Object>) dtMap);
 			}
 		}catch(Exception e){
 			logger.error(e);
@@ -153,7 +154,7 @@ public class CommonDao
 			if(rs.next()){
 				map = new HashMap();
 				for(int i=1; i <= numberOfColumns;i++) {
-					String key_nam = metaData.getColumnName(i);
+					String key_nam = metaData.getColumnLabel(i);
 					int typ = metaData.getColumnType(i);
 					if(typ == java.sql.Types.NUMERIC){
 						String num = rs.getString(i);

@@ -23,15 +23,19 @@ public class MailAction extends CommonAction{
 		
 		
 		try{
-			String umail = request.getParameter("useremail");
 			
+			String umail = request.getParameter("useremail");
+			String stuNum = request.getParameter("stuNum");
 			//param.put("user", dao.MainGetDB(param));
 			
 			SendMail aa = new SendMail();
-			request.setAttribute("userMail", umail);
+			request.setAttribute("userMail", umail); // jsp로 전송한다
+			//request.setAttribute("stuNum", stuNum);
 			
-			aa.getAddr("aann217@gmail.com", "dksdyd5237", umail);// 계정 정보 입력
-			 
+			int mailCode = aa.getAddr("aann217@gmail.com", "dksdyd5237", umail);// 계정 정보 입력
+			
+			
+			
 		}catch(Exception e){
 			logger.error(e);
 			

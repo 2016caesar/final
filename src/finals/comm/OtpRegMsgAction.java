@@ -45,7 +45,7 @@ import finals.util.OTPUtil;
 				
 				
 				
-				System.out.println("입력받은 학번 :"+inputid+ "입력받은 오티피 = "+inputcode);
+				System.out.println("입력받은 학번 :"+inputid+ "입력받은 코드 = "+inputcode);
 				
 				request.setCharacterEncoding("UTF-8");
 				

@@ -48,6 +48,9 @@
      <action path="/test" type="finals.comm.test" scope="request">
       <forward name="test" path="/main/test.jsp" />
     </action>
+    <action path="/otpRegMsg" type="finals.comm.OtpRegMsgAction" scope="request">
+      <forward name="otpRegMsg" path="/main/otpReg/otpRegMsg.jsp" />
+    </action>
     
     
 <!-- ./main.jsp /main.jsp-->

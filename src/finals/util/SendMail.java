@@ -29,6 +29,8 @@ public class SendMail {
     	
         Random generator = new Random();
         int authnum = generator.nextInt(900000)+100000;
+        
+        
 
     	
      // =================================================
@@ -68,6 +70,9 @@ public class SendMail {
         Authenticator auth = new Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(fromEmail, password);
+                
+                
+                
             }
         };
          

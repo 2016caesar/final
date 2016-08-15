@@ -24,7 +24,7 @@ import finals.util.OTPUtil;
 
 	
 			try{
-				
+				String resultMsg = "";
 				System.out.println("호출 페이지는 /otpLOconf.do 입니다.");
 				
 				OTPDao dao = new OTPDao();
@@ -34,14 +34,19 @@ import finals.util.OTPUtil;
 				
 				System.out.println("입력받은 학번 :"+inputid+ "입력받은 오티피 = "+inputotp);
 				
-				List<HashMap<String,String>> otpList = dao.otpGetDB(inputid,inputotp);
-				System.out.println("get Row Count : " + otpList.size());
-				if(otpList.size() == 1){
-					System.out.println("로그인 되었습니다.");
+				List otpList = (List) dao.otpGetDB(inputid,inputotp);
+				Map countInfo = dao.otpGetDBCount(inputid, inputotp);
+				int totalNum = Integer.parseInt(countInfo.get("total").toString());			
+				System.out.println("get Row Count : " + totalNum);
+				
+				if(totalNum == 1){
+					System.out.println("OTP 로그인 되었습니다.");
+					resultMsg="OTP 로그인 되었습니다.";
 				}else{
 					System.out.println("일치하는 정보가 없습니다. 로그인 정보를 확인해주십시오.");
+					resultMsg="일치하는 정보가 없습니다. 로그인 정보를 확인해주십시오.";
 				}
-				
+				request.setAttribute("resultMsg", resultMsg);
 			
 			}catch(Exception e){
 				logger.error(e);

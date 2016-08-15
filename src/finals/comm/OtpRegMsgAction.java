@@ -69,13 +69,15 @@ import finals.util.OTPUtil;
 						
 						jObject.put("verified","succeed");
 						jObject.put("count", totalNum+"");
-						jObject.put("stuNum", stuNum+"");										
+						jObject.put("stuNum", stuNum+"");	
+						jObject.put("comment", "메일 인증이 완료되었습니다."+"");
 					}
 					System.out.println("일치");// size = 1 이면 인증완료
 				}else{
 					jObject.put("verified","fail");
 					jObject.put("count", totalNum+"");
 					jObject.put("stuNum", stuNum+"");
+					jObject.put("comment", "메일 인증이 일치 하지 않습니다."+"");
 					System.out.println("노일치");
 				}
 				//jArray.add(0,jObject);

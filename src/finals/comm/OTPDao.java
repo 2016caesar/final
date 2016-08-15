@@ -55,7 +55,7 @@ public class OTPDao extends CommonDao{
 	
 	public List otpGetDB(String uid, String inputotp){
 	
-				List<HashMap<String,String>> result = null;
+				List result = null;
 		    	Connection conn = null;
 		        PreparedStatement pstmt = null;
 		        ResultSet rs = null;
@@ -92,5 +92,44 @@ public class OTPDao extends CommonDao{
 
 		    	return result;
 		    }
-	
-	}
+
+	public Map otpGetDBCount(String stuNum, String mailCode){
+		
+		Map result = null;
+    	Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        StringBuffer query = new StringBuffer();
+
+        try{
+        	System.out.println("stuNum : "+stuNum);
+        	System.out.println("mailCode : "+mailCode);
+        	conn = getJndi();
+            query.setLength(0);
+            
+            query.append(" SELECT  COUNT(`U_NO`) AS total \n");
+          	query.append(" FROM `mylist`.`c_otp_authen` \n");
+          	query.append(" WHERE `U_NO` = '"+stuNum+"'  \n");
+          	query.append(" AND`OTP_CODE` = '"+mailCode+"' \n");
+          	query.append(" ; \n");
+          	
+          	System.out.println(query.toString());
+          	pstmt = conn.prepareStatement(query.toString());
+          	
+          	rs = pstmt.executeQuery();
+          	
+            result = setData(rs); 
+            System.out.println(result);
+
+            
+        }catch(Exception e){
+        	e.printStackTrace();
+        	logger.error(e);
+        }finally{
+        	setClose(conn,pstmt);
+        }
+
+    	return result;
+    }
+}

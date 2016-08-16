@@ -34,7 +34,6 @@ function fsubmit() {
 				<input type="hidden" id="brochks" name ="brochks"  />
 				<input type="hidden" name="pki_msg"/>
 			</form>
-			
 			<img class="sso_title" src="main/img/title.png" alt="상명대학교 통합로그인" /><br />
 			<img class="sso_slogan" src="main/img/slogan.png" alt="Global Sangmyung Dynamic Sangmyung" />
 			

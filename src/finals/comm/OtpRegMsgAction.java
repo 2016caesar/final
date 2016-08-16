@@ -39,8 +39,8 @@ import finals.util.OTPUtil;
 		      
 				String stuNum = 	request.getParameter("stuNum");
 				String mailCode = 	request.getParameter("mailCode");
-				stuNum = "201011063";
-				mailCode = "xxx";
+				//stuNum = "201011063";
+				//mailCode = "xxx";
 				//DB조회  - 메일 코드 확인
 				OTPRegDao regDao = new OTPRegDao();
 				List<Map<String, Object>> mailCodeList = (List<Map<String, Object>>) regDao.mailCodeCompare(stuNum, mailCode);

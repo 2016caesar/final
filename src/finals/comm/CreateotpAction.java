@@ -25,12 +25,20 @@ import finals.util.OTPUtil;
 	
 			try{
 				
-				String stuNum = (String) request.getAttribute("stuNum");
-				OTPUtil otpUtil = new OTPUtil();
-				//AES 를 DB 호출 - 호출할때 최신정보를 가져오도록한다. 그리고 1일 이상 된것은 지우도록한다.
-				String aesEnc = "";
+				//String stuNum = (String) request.getAttribute("stuNum");
 				
-				String code = (String) otpUtil.serverOTPGet(aesEnc);
+				OTPUtil otpUtil = new OTPUtil();
+				//임시 2줄
+				String stuNum = "201011032";
+				String AESkey = otpUtil.AESEncrypt(stuNum);
+				
+				
+				//AES 를 DB 호출 - 호출할때 최신정보를 가져오도록한다. 그리고 1일 이상 된것은 지우도록한다.
+				//String aesEnc = "201011032";
+				
+				//임시1줄
+				String code = (String) otpUtil.serverOTPGet(AESkey);
+				
 				
 				OTPDao otpDao = new OTPDao();
 				int insertCert = otpDao.otpSetDB(stuNum,code);

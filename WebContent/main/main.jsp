@@ -132,50 +132,54 @@ function fPkiLogin()
 		<img src="main/img/korean.png"  width="70" height="21" border="0" id="ko"/></a>
         <img src="main/img/english.png"  width="70" height="21" border="0" id="eng"/></a>
 		<img src="main/img/chinese.png" width="70" height="21" border="0" id="ch"/></a>
-			<form name="normal_login" method="post" action="login/normal_login.jsp">
-				<input type="hidden" name="mode" value="login"/>
-				<input type="hidden" id="oschks" name="oschks"/>
-				<input type="hidden" id="brochks" name ="brochks"  />
-				<input type="hidden" name="pki_msg"/>
-			</form>
-			
-			
-			<img class="sso_title" src="main/img/title.png" alt="상명대학교 통합로그인" /><br />
-			<img class="sso_slogan" src="main/img/slogan.png" alt="Global Sangmyung Dynamic Sangmyung" />
-				<div class="box_area">
-					<p class="sub_tit1">OTP로그인</p>
+		<form name="normal_login" method="post" action="login/normal_login.jsp">
+			<input type="hidden" name="mode" value="login"/>
+			<input type="hidden" id="oschks" name="oschks"/>
+			<input type="hidden" id="brochks" name ="brochks"  />
+			<input type="hidden" name="pki_msg"/>
+		</form>
+		<img class="sso_title" src="main/img/title.png" alt="상명대학교 통합로그인" /><br />
+		<img class="sso_slogan" src="main/img/slogan.png" alt="Global Sangmyung Dynamic Sangmyung" />
+			<div class="box_area">
+				<div class="inner_main_container">
+					<!-- <p class="sub_tit1">OTP로그인</p>
 					<img class="line" src="main/img/line.png" alt="line" /> 
 					<p class="sub1_txt">OTP로그인 사용을 위해서는<br />아이디 로그인 이후 기기 본인인증을<br />하셔야 합니다.</p>
-					<br />
-				<form name="OTP_LOGIN" method="post" action="/otp_login.do" >
-					<input type="image" class="bt_login1" src="main/img/login1.png" title="로그인" longdesc="로그인"> 
-						<!-- <img class="bt_login1" src="main/img/login1.png" alt="로그인" style="cursor:pointer;">
-						<img class="bt_login1" src="main/img/login1.png" alt="로그인" style="cursor:pointer;" onclick="fPkiLogin();" />-->
-					</input>
-				</form>
-					<img class="line2" src="main/img/line.png" alt="line" />
+					<br /> -->
+					<p class="sub_tit4">기기본인인증</p>
+						<br /><img class="line1" src="main/img/line.png" alt="line" /> 
+					<p class="sub1_txt1">학번과 메일주소를 입력하세요.</p>
+					<div class="login_area">
+						<form name="otp_login" method="post" action="/otp_login.do" >
+							<input class="stuNum_input_txt" type="text" name="stuNum" placeholder="stuNum" ></input> 
+							<input class="login_input_txt" type="text" name="useremail" placeholder="e-mail" ></input> 
+							<input type="image" class="bt_login1" src="main/img/login1.png" title="로그인" longdesc="로그인"></input>
+						</form>
+					</div>
+					
                 	<p class="sub_tit2">아이디/비밀번호 로그인</p>
-				
-				<form name="LOGIN_FORM" method="post" action="/login.do" onSubmit="f_form1(this);return false;">
-					<input class="INPUT_TXT" name="uid"  placeholder=" 아이디"  type="text" maxlength="20">
-					<input class="input_pw" name="pwd" placeholder=" 비밀번호"  type="password" maxlength="30">
-					<input type="hidden" id="oschk" name="oschk"/>
-					<input type="hidden" id="brochk" name ="brochk"  />
-					<input type="image" class="bt_login2" src="main/img/login2.png" title = "로그인전송" longdesc="로그인">
-				</form>
+                	<br/><img class="line2" src="main/img/line.png" alt="line" />
+                	<div class="login_area">
+						<form name="LOGIN_FORM" method="post" action="/login.do" onSubmit="f_form1(this);return false;">
+	 						<input class="input_txt" name="uid"  placeholder="아이디" type="text" maxlength="20"/>
+							<input class="input_pw" name="pwd" placeholder="비밀번호" type="password" maxlength="30"/>
+							<input type="image" class="bt_login2" src="main/img/login2.png" title = "로그인전송" longdesc="로그인"/>
+						</form>
+					</div>
 				<p class="find_txt">* 초기 비밀번호는 생년월일(주민등록번호 앞 6자리)입니다
 				<br>&nbsp;&nbsp;&nbsp;예) 생년월일 : 1986년 02월 10일 -> 비밀번호 : 860210<br><br><br>비밀번호가 생각나지 않으세요?</p>
 				<a href="javascript:void(XecureNavigate('/login/info_ini.jsp','_self'))"><img class="bt_find" src="main/img/pwfind.png" alt="비밀번호 찾기" /></a>
 			</div>
-			<div>
+		</div>
+		<div>
 			<p class="sub2_txt">서울캠퍼스 서울시 종로구 홍지문 2길 20 (우)03016 / 천안캠퍼스 충남 천안시 동남구 상명대길 31 (우)31066<br /></p>
 			<p class="sub3_txt">Copyright(c) 2013 Sangmyung University All Rights Reserved</p>
 		</div>
-		</div>
+	</div>
 		<!-- <input type="button" value="팝업창" onclick="window.open('http://sso.smu.ac.kr:8082/kmcis/kmcis_web_sample_step01.jsp','window팝업','width=400, height=200, menubar=no, status=no, toolbar=no');">-->
 		<!--<a href="http://www.kmcert.com/kmcis/web/kmcisReq.jsp">t</a>-->
 		<!--<a href="javascript:void(XecureNavigate('/login/info_ini.jsp','_self'))">t</a>-->
-	</body>
+</body>
 </html>
 
 

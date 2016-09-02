@@ -67,7 +67,7 @@ import finals.util.OTPUtil;
 					//AES 키 정보 테이블  insert
 					OTPUtil otpUtil = new OTPUtil();
 					String aesEnc = otpUtil.AESEncrypt(stuNum);
-					int AESInsertResult = regDao.AESKeyInsert(stuNum,aesEnc);
+					/*int AESInsertResult = regDao.AESKeyInsert(stuNum,aesEnc);
 					String AESInserted = "fail";
 					//AES DB insert
 					if(AESInsertResult == 1){
@@ -76,9 +76,9 @@ import finals.util.OTPUtil;
 						AESInserted = "fail";
 					}
 					System.out.println("AESInsertResult : "+ AESInsertResult);// size = 1 이면 인증완료
-					jObject.put("AESInserted",AESInserted);
+					jObject.put("AESInserted",AESInserted);*/
 					//otp 정보 테이블  insert
-					int OTPInsertedResult = regDao.OTPInfoInsert(stuNum);
+					/*int OTPInsertedResult = regDao.OTPInfoInsert(stuNum);
 					String OTPInserted = "fail";
 					//otp DB insert
 					if(OTPInsertedResult == 1){
@@ -87,7 +87,7 @@ import finals.util.OTPUtil;
 						OTPInserted = "fail";
 					}
 					System.out.println("OTPInsertedResult : "+ OTPInsertedResult);// size = 1 이면 인증완료
-					jObject.put("OTPInserted",OTPInserted);
+					jObject.put("OTPInserted",OTPInserted);*/
 					
 					jObject.put("count", totalNum+"");
 					jObject.put("stuNum", stuNum+"");	

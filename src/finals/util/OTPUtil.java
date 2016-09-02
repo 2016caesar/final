@@ -46,8 +46,8 @@ public class OTPUtil extends CommonDao{
 	        long T = (testTime - T0)/X;
 	        steps = Long.toHexString(T).toUpperCase();
 	        
-			code = sha256.generateTOTP256(aes128, steps, "8");
 			
+	        code = sha256.generateTOTP256(aes128, steps, "8");
 		}catch(Exception ex){
 			ex.printStackTrace();
         	logger.error(ex);

@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%-- <%@ include file="session.jsp" %> --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -6,7 +6,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <title>normal login</title>
 <link rel="stylesheet" type="text/css" href="" />
@@ -19,6 +19,9 @@ function fsubmit() {
      //document.devicecheck.useremail.value = mail;
      document.devicecheck.action = "/mail.do";
      document.devicecheck.submit();
+}
+function goLogout(){
+	location.href="/logout.do";
 }
 </script>
 </head>
@@ -34,7 +37,6 @@ function fsubmit() {
 				<input type="hidden" id="brochks" name ="brochks"  />
 				<input type="hidden" name="pki_msg"/>
 			</form>
-			
 			<img class="sso_title" src="main/img/title.png" alt="상명대학교 통합로그인" /><br />
 			<img class="sso_slogan" src="main/img/slogan.png" alt="Global Sangmyung Dynamic Sangmyung" />
 			
@@ -49,6 +51,7 @@ function fsubmit() {
 				</form> -->
 			
 		<!-- <br /><br /><img class="line4" src="main/img/line.png" alt="line" />  -->
+		<img class="bt_logout" type="button" src="main/img/logout.png" style="cursor:pointer;" onclick="javascript:goLogout();">
 		<div class="box_area">
 			<div class="inner_container">
 				<form name="Page_FORM" method="post" action="/page.do" >
@@ -60,11 +63,13 @@ function fsubmit() {
 						<img class="btn_image" src="main/img/internethaksa.png" width="130" height="50" />
 						<img class="btn_image" src="main/img/libincheonan.png" width="130" height="50" />
 						<img class="btn_image" src="main/img/libinseoul.png" width="130" height="50" />
+											
 					</div>		
 				</form>
 				<p class="find_txt"></p>
 				<br>&nbsp;&nbsp;&nbsp;<br><br><br>
 				<br>
+				
 			</div>
 		</div>
 			

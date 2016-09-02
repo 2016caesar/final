@@ -23,12 +23,14 @@
     </action>
     <action path="/main" type="finals.comm.MainAction" scope="request">
       <forward name="main" path="/main/main.jsp" />
+      <forward name="session" path="/login.do" redirect="true" />
     </action>
     <action path="/otp_login" type="finals.comm.OtpLoginAction" scope="request">
       <forward name="otp_login" path="/main/otp_login.jsp" />
     </action>   
     <action path="/login" type="finals.comm.LoginAction" scope="request">
       <forward name="login" path="/main/login.jsp" />
+       <forward name="fail" path="/login.do" redirect="true" />
     </action>    
 	<action path="/page" type="finals.comm.PageAction" scope="request">
       <forward name="page" path="/main/page.jsp" />
@@ -51,6 +53,10 @@
     <action path="/otpRegMsg" type="finals.comm.OtpRegMsgAction" scope="request">
       <forward name="otpRegMsg" path="/main/otpReg/otpRegMsg.jsp" />
     </action>
+      <action path="/logout" type="finals.comm.LogoutAction" scope="request">
+      <forward name="logout" path="/main/logout.jsp" />
+    </action>
+    
     
     
 <!-- ./main.jsp /main.jsp-->

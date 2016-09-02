@@ -1,11 +1,4 @@
 package finals.comm;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import finals.util.OTPUtil;
@@ -30,7 +22,7 @@ import finals.util.OTPUtil;
 				, HttpServletResponse response
 				, Map param
 			){
-
+				
 			try{
 
 				System.out.println("여기는 /otpRegMsg.do 입니다.");
@@ -69,7 +61,6 @@ import finals.util.OTPUtil;
 						System.out.println("eMailTime : "+ eMailTime);
 						//System.out.println("emailTimeTrans : "+ emailTimeTrans);
 						System.out.println("======================================");
-					
 					}	
 					jObject.put("verified","succeed");
 					System.out.println("유저정보 출력 End");// size = 1 이면 인증완료

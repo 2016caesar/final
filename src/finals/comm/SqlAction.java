@@ -39,6 +39,7 @@ public class SqlAction extends CommonAction{
 			
 			System.out.println(user);
 			request.setAttribute("userList", user);
+			request.setAttribute("isDone", "false");
 			
 			//request.setAttribute("test", dao.MainGetDB(param));
 			//param.put("userList",user);

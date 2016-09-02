@@ -55,7 +55,18 @@ out.println(request.getParameter("user"));*/
 	email : <c:out value="${ result.u_mail }"/><Br/>
 	pw : <c:out value="${ result.u_pass }"/><Br/>
 	time : <c:out value="${ result.u_c_time }"/><Br/>
-
+민주
 </c:forEach>
+<c:if test="${ isDone eq 'false'}">
+	<script>
+		window.onload = function(){
+			alert('로그인 해주십시오.');
+			location.href="/main.do";
+			
+			
+		}
+	 
+	</script>
+</c:if> 
 </body>
 </html>

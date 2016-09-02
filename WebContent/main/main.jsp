@@ -12,7 +12,6 @@
 <c:if test="false">
 </c:if>
 <style>
-
 </style>
 </head>
 <!-- 
